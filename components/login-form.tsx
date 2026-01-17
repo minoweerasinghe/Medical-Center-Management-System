@@ -24,7 +24,15 @@ export function LoginForm() {
 
   const handleSignup = () => {
     if (signupRole) {
-      router.push(`/register?role=${signupRole}`)
+      const roleRoutes: Record<string, string> = {
+        doctor: "/register/doctor",
+        patient: "/register/patient",
+        "medical center assistant": "/register/medical-assistant",
+      }
+      const route = roleRoutes[signupRole]
+      if (route) {
+        router.push(route)
+      }
     }
   }
 

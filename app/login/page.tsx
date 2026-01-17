@@ -8,12 +8,12 @@ export default function LoginPage() {
       <main className="container mx-auto px-4 py-8 max-w-2xl">
         <div className="flex flex-col items-center">
           <img
-            src="/modern-hospital-building-with-red-cross-on-top--bl.jpg"
+            src="/login.png"
             alt="Medical Centre Building"
-            className="w-full max-w-xl rounded-lg mb-8"
+            className="w-full max-w-200xl rounded-lg mb-10"
           />
 
-          <h1 className="text-xl font-bold text-foreground mb-8">Welcome to MEDiCAL CENTRE</h1>
+          <h1 className="text-4xl font-bold text-foreground mb-8">Welcome to MEDiCAL CENTRE</h1>
 
           <LoginForm />
         </div>

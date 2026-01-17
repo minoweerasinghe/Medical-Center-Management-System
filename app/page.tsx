@@ -26,7 +26,7 @@ export default function Home() {
             title="Doctor Availability"
             description="Get to know about doctor availability and save your time"
             buttonText="Click Here"
-            imageSrc="/cartoon-illustration-of-two-doctors-in-white-coats.jpg"
+            imageSrc="/doctor-availability.png"
             imageAlt="Doctor availability illustration"
           />
 

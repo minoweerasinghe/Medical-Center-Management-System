@@ -7,7 +7,7 @@ export default function DoctorAvailabilityPage() {
       name: "Dr. Joseph Ferreira",
       specialty: "Cardiologist",
       registrationNo: "REG/DCA/12345/690",
-      image: "/female-doctor-in-white-coat-smiling-with-medical-t.jpg",
+      image: "/male-doc.png",
       availability: [
         { day: "Monday", startTime: "08:00 AM", endTime: "02:00 PM" },
         { day: "Tuesday", startTime: "09:00 AM", endTime: "03:00 PM" },
@@ -23,7 +23,7 @@ export default function DoctorAvailabilityPage() {
       name: "Dr. Ameesha Rodrigo",
       specialty: "Pediatrician",
       registrationNo: "REG/DCS/12345/1234",
-      image: "/cartoon-illustration-of-doctor-consulting-with-pat.jpg",
+      image: "/female-doc.png",
       availability: [
         { day: "Monday", startTime: "09:00 AM", endTime: "04:00 PM" },
         { day: "Tuesday", startTime: "08:00 AM", endTime: "02:00 PM" },
