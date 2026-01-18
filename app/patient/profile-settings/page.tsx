@@ -6,10 +6,10 @@ import { Card } from "@/components/ui/card"
 
 export default function ProfileSettingsPage() {
   const [formData, setFormData] = useState({
-    fullName: "Shonda Clark",
-    email: "ShondaMisiqui@gmail.com",
-    phone: "+44 77 777 2222",
-    address: "012, Mid Lane Ave, Ashbury",
+    fullName: "Olivia Bennett",
+    email: "olivia@gmail.com",
+    phone: "077 123 4562",
+    address: "Alakamanda',Kiulawatta, Bombuwela, Kalutara South",
   })
 
   return (

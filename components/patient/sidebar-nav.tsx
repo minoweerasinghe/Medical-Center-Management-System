@@ -5,12 +5,12 @@ import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
 
 const navItems = [
-  { label: "Family Account", href: "/patient/family-account", icon: "👥" },
+  { label: "Profile", href: "/patient/profile", icon: "👤" },
   { label: "Queue Token", href: "/patient/queue-token", icon: "🎫" },
   { label: "Prescriptions", href: "/patient/prescriptions", icon: "📋" },
   { label: "Payments", href: "/patient/payments", icon: "💳" },
   { label: "View History", href: "/patient/view-history", icon: "📜" },
-  { label: "Profile", href: "/patient/profile", icon: "👤" },
+  { label: "Cancel Appointment", href: "/patient/cancel-appointment", icon: "❌" },
   { label: "Logout", href: "/login", icon: "🚪" },
 ]
 

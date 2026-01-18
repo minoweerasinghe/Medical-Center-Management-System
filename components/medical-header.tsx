@@ -27,19 +27,16 @@ export function MedicalHeader({ variant = "home" }: MedicalHeaderProps) {
             </Link>
           </nav>
         ) : variant === "login" ? (
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-10">
             <Link href="/" className="text-foreground hover:text-[#0891b2] transition-colors">
               Home
             </Link>
             <Link href="/about" className="text-foreground hover:text-[#0891b2] transition-colors">
               About Us
             </Link>
-            <Button variant="outline" className="rounded-md bg-transparent">
-              Sign Up
-            </Button>
           </nav>
         ) : (
-          <nav className="flex items-center gap-6">
+          <nav className="flex items-center gap-10">
             <Link href="/" className="text-foreground hover:text-[#0891b2] transition-colors">
               Home
             </Link>

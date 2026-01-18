@@ -9,13 +9,13 @@ export default function ProfilePage() {
   const [isEditing] = useState(false)
 
   const profileData = {
-    id: "#123456",
+    id: "002",
     name: "Olivia Bennett",
-    address: "123 Oak Street, Anytown, USA",
-    contact: "(555) 123-4567",
+    address: "'Alakamanda',Kiulawatta, Bombuwela, Kalutara South",
+    contact: "077 123 4567",
     gender: "Female",
     birthday: "1994-05-15",
-    image: "/female-patient-profile.jpg",
+    image: "/pic3.png",
   }
 
   return (
