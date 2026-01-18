@@ -24,7 +24,7 @@ export function AboutSection() {
         </div>
         <div className="w-40 h-28 flex-shrink-0">
           <img
-            src="/cartoon-illustration-of-medical-staff-in-hospital-.jpg"
+            src="/MCA.png"
             alt="Medical staff illustration"
             className="w-full h-full object-cover rounded-lg"
           />

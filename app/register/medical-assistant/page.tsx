@@ -80,7 +80,7 @@ export default function MedicalAssistantRegisterPage() {
         </div>
 
         <div className="w-full max-w-md px-4">
-          <h1 className="text-3xl font-bold text-center text-gray-900 mb-10">Register Medical Assistant</h1>
+          <h1 className="text-3xl font-bold text-center text-gray-900 mb-10">Register Medical Center Assistant</h1>
 
           <form onSubmit={handleSubmit} className="space-y-6">
             <div>

@@ -6,9 +6,9 @@ import { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
+import { RadioGroup, RadioGroupItem } from "./ui/radio-group"
 
 export function LoginForm() {
   const [username, setUsername] = useState("")
@@ -19,7 +19,16 @@ export function LoginForm() {
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
-    console.log({ username, password, role })
+    if (role === "patient") {
+      // 1. Patient redirects to family account dashboard
+      router.push("/patient/family-account")
+    } else if (role === "doctor") {
+      // 2. Doctor redirects to doctor dashboard
+      router.push("/doctor/dashboard")
+    } else if (role === "medical center assistant") {
+      // 3. Medical assistant redirects to medical assistant dashboard
+      router.push("/medical-assistant/dashboard")
+    }
   }
 
   const handleSignup = () => {
@@ -70,16 +79,22 @@ export function LoginForm() {
         <Label htmlFor="role" className="text-foreground font-medium">
           Role
         </Label>
-        <Select value={role} onValueChange={setRole}>
-          <SelectTrigger className="border-[#0891b2]">
-            <SelectValue placeholder="Select Role" />
-          </SelectTrigger>
-          <SelectContent>
-            <SelectItem value="doctor">Doctor</SelectItem>
-            <SelectItem value="patient">Patient</SelectItem>
-            <SelectItem value="medical center assistant">Medical center assistant</SelectItem>
-          </SelectContent>
-        </Select>
+        <RadioGroup value={role} onValueChange={setRole} className="space-y-2">
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="doctor" id="r1" />
+            <Label htmlFor="r1">Doctor</Label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="patient" id="r2" />
+            <Label htmlFor="r2">Patient</Label>
+          </div>
+
+          <div className="flex items-center space-x-2">
+            <RadioGroupItem value="medical center assistant" id="r3" />
+            <Label htmlFor="r3">Medical Center Assistant</Label>
+          </div>
+        </RadioGroup>
       </div>
 
       <div className="space-y-1 text-sm">
@@ -97,20 +112,26 @@ export function LoginForm() {
       <div className="border-t border-[#0891b2] pt-6 mt-6">
         <p className="text-sm text-[#0891b2] mb-4">Don't have an account? Create one:</p>
         <div className="space-y-2">
-          <Label htmlFor="signup-role" className="text-foreground font-medium">
-            Select Registration Role
-          </Label>
-          <Select value={signupRole} onValueChange={setSignupRole}>
-            <SelectTrigger className="border-[#0891b2]" id="signup-role">
-              <SelectValue placeholder="Select your role" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="doctor">Doctor</SelectItem>
-              <SelectItem value="patient">Patient</SelectItem>
-              <SelectItem value="medical center assistant">Medical center assistant</SelectItem>
-            </SelectContent>
-          </Select>
+          <Label className="text-foreground font-medium">Select Registration Role</Label>
+
+          <RadioGroup value={signupRole} onValueChange={setSignupRole} className="space-y-2">
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="doctor" id="r1" />
+              <Label htmlFor="r1">Doctor</Label>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="patient" id="r2" />
+              <Label htmlFor="r2">Patient</Label>
+            </div>
+
+            <div className="flex items-center space-x-2">
+              <RadioGroupItem value="medical center assistant" id="r3" />
+              <Label htmlFor="r3">Medical Center Assistant</Label>
+            </div>
+          </RadioGroup>
         </div>
+
         <Button
           type="button"
           onClick={handleSignup}
