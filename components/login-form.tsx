@@ -26,8 +26,8 @@ export function LoginForm() {
       // 2. Doctor redirects to doctor dashboard
       router.push("/doctor/dashboard")
     } else if (role === "medical center assistant") {
-      // 3. Medical assistant redirects to medical assistant dashboard
-      router.push("/medical-assistant/dashboard")
+      // 3. Medical assistant redirects to assistant dashboard
+      router.push("/assistant/dashboard")
     }
   }
 

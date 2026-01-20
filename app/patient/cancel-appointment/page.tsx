@@ -36,7 +36,7 @@ export default function CancelAppointmentPage() {
       time: "Patient: Sophie Brown",
       status: "Scheduled",
       image: "/pic4.png",
-    },
+    }
   ])
 
   const handleCancelAppointment = (id: string) => {
@@ -86,11 +86,11 @@ export default function CancelAppointmentPage() {
                     >
                       Cancel Appointment
                     </Button>
-                    <Button 
+                    {/* <Button 
                       className="bg-blue-500 hover:bg-blue-600 text-white px-6 py-2 text-sm"
                     >
                       Get Queue Token
-                    </Button>
+                    </Button> */}
                   </div>
                 </div>
 

@@ -24,7 +24,7 @@ export default function FamilyAccountPage() {
 
   const handleSelectMember = (member: FamilyMember) => {
     setSelectedMember(member)
-    router.push(`/patient/profile?id=${member.id}`)
+    router.push("/patient/dashboard")
   }
 
   return (
