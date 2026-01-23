@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export function AboutSection() {
   return (
-    <section className="w-full max-w-2xl mx-auto border-t border-border py-6">
+    <section id="about-us" className="w-full max-w-2xl mx-auto border-t border-border py-6 scroll-mt-20">
       <div className="flex items-start justify-between gap-6">
         <div className="flex-1">
           <h3 className="text-sm font-bold text-foreground mb-1">ABOUT US</h3>

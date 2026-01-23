@@ -111,15 +111,6 @@ export default function DoctorPatients() {
                   <p className="text-xs text-gray-500 underline">Known Allergies</p>
                   <p className="font-medium">{selectedPatient.allergies.join(", ")}</p>
                 </div>
-
-                <div className="flex gap-3 pt-2">
-                  <Button variant="outline" className="bg-transparent border-gray-300">
-                    View History
-                  </Button>
-                  <Button className="bg-teal-500 hover:bg-teal-600 text-white">
-                    View Prescription
-                  </Button>
-                </div>
               </div>
 
               {/* Patient Avatar */}

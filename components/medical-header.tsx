@@ -19,7 +19,7 @@ export function MedicalHeader({ variant = "home" }: MedicalHeaderProps) {
             <Link href="/" className="text-foreground hover:text-[#0891b2] transition-colors">
               Home
             </Link>
-            <Link href="/about" className="text-foreground hover:text-[#0891b2] transition-colors">
+            <Link href="/#about-us" className="text-foreground hover:text-[#0891b2] transition-colors">
               About Us
             </Link>
             <Link href="/login" className="text-foreground hover:text-[#0891b2] transition-colors font-medium">
@@ -31,7 +31,7 @@ export function MedicalHeader({ variant = "home" }: MedicalHeaderProps) {
             <Link href="/" className="text-foreground hover:text-[#0891b2] transition-colors">
               Home
             </Link>
-            <Link href="/about" className="text-foreground hover:text-[#0891b2] transition-colors">
+            <Link href="/#about-us" className="text-foreground hover:text-[#0891b2] transition-colors">
               About Us
             </Link>
           </nav>
@@ -40,11 +40,14 @@ export function MedicalHeader({ variant = "home" }: MedicalHeaderProps) {
             <Link href="/" className="text-foreground hover:text-[#0891b2] transition-colors">
               Home
             </Link>
+            <Link href="/#about-us" className="text-foreground hover:text-[#0891b2] transition-colors">
+              About Us
+            </Link>
             <Link href="/login" className="text-foreground hover:text-[#0891b2] transition-colors">
               Login
             </Link>
-            <Link href="/doctor-availability" className="text-foreground hover:text-[#0891b2] transition-colors">
-              Doctor
+            <Link href="/login#register" className="text-foreground hover:text-[#0891b2] transition-colors">
+              Register
             </Link>
           </nav>
         )}

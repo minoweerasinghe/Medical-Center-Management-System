@@ -18,24 +18,24 @@ interface Appointment {
 export default function CancelAppointmentPage() {
   const [appointments, setAppointments] = useState<Appointment[]>([
     {
-      id: "1",
+      id: "002",
       queueNumber: 23,
-      doctorName: "Dr. Sophie Brown",
+      doctorName: "Dr. Mahesh Joseph",
       specialty: "General Practitioner",
       date: "10:00 AM, Jan 22, 2025",
       time: "Patient: Sophie Brown",
       status: "Scheduled",
-      image: "/pic3.png",
+      image: "/queue-token.png",
     },
     {
-      id: "2",
+      id: "002",
       queueNumber: 32,
       doctorName: "Dr. Clara Harper",
       specialty: "Dermatologist",
-      date: "2:30 PM, Jan 23, 2025",
+      date: "2:30 PM, Jan 05, 2025",
       time: "Patient: Sophie Brown",
       status: "Scheduled",
-      image: "/pic4.png",
+      image: "/queue-token.png",
     }
   ])
 

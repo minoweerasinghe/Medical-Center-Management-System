@@ -28,7 +28,7 @@ export default function DashboardPage() {
     doctor: {
       name: "Dr. Sophie Brown",
       specialty: "General Practitioner",
-      image: "/images/doctor-sophie.jpg",
+      image: "/queue-token.png",
     },
     status: "Scheduled",
   }
@@ -66,10 +66,6 @@ export default function DashboardPage() {
             <div>
               <p className="text-xs text-gray-500 mb-1">Your Token Number</p>
               <p className="text-5xl font-bold text-gray-900">{queueStatus.tokenNumber}</p>
-            </div>
-            <div className="text-right">
-              <p className="text-xs text-gray-500">Estimated Wait</p>
-              <p className="text-xl font-semibold text-blue-600">{queueStatus.estimatedWait}</p>
             </div>
           </div>
           <p className="text-sm text-gray-600 mt-3">Currently serving: {queueStatus.currentlyServing}</p>

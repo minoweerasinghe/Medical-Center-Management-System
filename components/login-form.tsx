@@ -2,13 +2,49 @@
 
 import type React from "react"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import { Label } from "@/components/ui/label"
 import Link from "next/link"
 import { useRouter } from "next/navigation"
-import { RadioGroup, RadioGroupItem } from "./ui/radio-group"
+import { Stethoscope, Briefcase, User } from "lucide-react"
+import { cn } from "@/lib/utils"
+
+interface RoleCardProps {
+  value: string
+  label: string
+  icon: React.ReactNode
+  selected: boolean
+  onSelect: (value: string) => void
+}
+
+function RoleCard({ value, label, icon, selected, onSelect }: RoleCardProps) {
+  return (
+    <button
+      type="button"
+      onClick={() => onSelect(value)}
+      className={cn(
+        "flex flex-col items-center justify-center p-4 rounded-lg border-2 transition-all min-w-[100px] flex-1",
+        selected
+          ? "border-[#0891b2] bg-[#0891b2]/5"
+          : "border-border bg-background hover:border-[#0891b2]/50"
+      )}
+    >
+      <div
+        className={cn(
+          "w-10 h-10 rounded-full flex items-center justify-center mb-2",
+          selected ? "bg-[#0891b2] text-white" : "bg-[#a7f3d0] text-[#0891b2]"
+        )}
+      >
+        {icon}
+      </div>
+      <span className={cn("text-sm font-medium", selected ? "text-[#0891b2]" : "text-foreground")}>
+        {label}
+      </span>
+    </button>
+  )
+}
 
 export function LoginForm() {
   const [username, setUsername] = useState("")
@@ -17,16 +53,22 @@ export function LoginForm() {
   const [signupRole, setSignupRole] = useState("")
   const router = useRouter()
 
+  useEffect(() => {
+    if (typeof window !== "undefined" && window.location.hash === "#register") {
+      const registerSection = document.getElementById("register-section")
+      if (registerSection) {
+        registerSection.scrollIntoView({ behavior: "smooth" })
+      }
+    }
+  }, [])
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (role === "patient") {
-      // 1. Patient redirects to family account dashboard
       router.push("/patient/family-account")
     } else if (role === "doctor") {
-      // 2. Doctor redirects to doctor dashboard
       router.push("/doctor/dashboard")
     } else if (role === "medical center assistant") {
-      // 3. Medical assistant redirects to assistant dashboard
       router.push("/assistant/dashboard")
     }
   }
@@ -44,6 +86,17 @@ export function LoginForm() {
       }
     }
   }
+
+  const roleOptions = [
+    { value: "doctor", label: "Doctor", icon: <Stethoscope className="w-5 h-5" /> },
+    { value: "medical center assistant", label: "Medical Assistant", icon: <Briefcase className="w-5 h-5" /> },
+    { value: "patient", label: "Patient", icon: <User className="w-5 h-5" /> },
+  ]
+
+    const rolesOptions = [
+    { value: "doctor", label: "Doctor", icon: <Stethoscope className="w-5 h-5" /> },
+    { value: "patient", label: "Patient", icon: <User className="w-5 h-5" /> },
+  ]
 
   return (
     <form onSubmit={handleSubmit} className="w-full max-w-md space-y-4">
@@ -75,26 +128,20 @@ export function LoginForm() {
         />
       </div>
 
-      <div className="space-y-2">
-        <Label htmlFor="role" className="text-foreground font-medium">
-          Role
-        </Label>
-        <RadioGroup value={role} onValueChange={setRole} className="space-y-2">
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="doctor" id="r1" />
-            <Label htmlFor="r1">Doctor</Label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="patient" id="r2" />
-            <Label htmlFor="r2">Patient</Label>
-          </div>
-
-          <div className="flex items-center space-x-2">
-            <RadioGroupItem value="medical center assistant" id="r3" />
-            <Label htmlFor="r3">Medical Center Assistant</Label>
-          </div>
-        </RadioGroup>
+      <div className="space-y-3">
+        <Label className="text-foreground font-medium">Select Your Role</Label>
+        <div className="flex gap-3">
+          {roleOptions.map((option) => (
+            <RoleCard
+              key={option.value}
+              value={option.value}
+              label={option.label}
+              icon={option.icon}
+              selected={role === option.value}
+              onSelect={setRole}
+            />
+          ))}
+        </div>
       </div>
 
       <div className="space-y-1 text-sm">
@@ -109,34 +156,31 @@ export function LoginForm() {
         </Button>
       </div>
 
-      <div className="border-t border-[#0891b2] pt-6 mt-6">
-        <p className="text-sm text-[#0891b2] mb-4">Don't have an account? Create one:</p>
-        <div className="space-y-2">
-          <Label className="text-foreground font-medium">Select Registration Role</Label>
-
-          <RadioGroup value={signupRole} onValueChange={setSignupRole} className="space-y-2">
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="doctor" id="r1" />
-              <Label htmlFor="r1">Doctor</Label>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="patient" id="r2" />
-              <Label htmlFor="r2">Patient</Label>
-            </div>
-
-            <div className="flex items-center space-x-2">
-              <RadioGroupItem value="medical center assistant" id="r3" />
-              <Label htmlFor="r3">Medical Center Assistant</Label>
-            </div>
-          </RadioGroup>
+      <div id="register-section" className="border-t border-[#0891b2] pt-6 mt-6 scroll-mt-20">
+        <h2 className="text-2xl font-bold text-foreground text-center mb-2">Create Your Account</h2>
+        <p className="text-sm text-muted-foreground text-center mb-6">Join our medical network today.</p>
+        
+        <div className="space-y-3">
+          <Label className="text-foreground font-medium">Select Your Role</Label>
+          <div className="flex gap-3">
+            {rolesOptions.map((option) => (
+              <RoleCard
+                key={option.value}
+                value={option.value}
+                label={option.label}
+                icon={option.icon}
+                selected={signupRole === option.value}
+                onSelect={setSignupRole}
+              />
+            ))}
+          </div>
         </div>
 
         <Button
           type="button"
           onClick={handleSignup}
           disabled={!signupRole}
-          className="w-full mt-3 bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-medium py-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full mt-6 bg-[#38bdf8] hover:bg-[#0ea5e9] text-white font-medium py-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           Create Account
         </Button>

@@ -6,17 +6,35 @@ import { AboutSection } from "@/components/about-section"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-slate-50">
       <MedicalHeader variant="home" />
-      <main className="container mx-auto px-4 py-8">
-        <div className="flex flex-col items-center gap-6">
-          <HeroSection />
 
+      <main className="max-w-7xl mx-auto px-4">
+
+        {/* HERO SECTION (moderate size, under header) */}
+        <section className="mt-3">
+          <HeroSection />
+        </section>
+
+        {/* QUEUE COUNTER (beautiful & normal flow) */}
+        <section className="mt-8 flex justify-center">
           <QueueCounter count={15} />
+        </section>
+
+        {/* FEATURE CARDS */}
+        <section className="mt-18 grid grid-cols-1 md:grid-cols-3 gap-10">
+
+          <FeatureCard
+            title="Login"
+            description="Securely login and access your medical profile."
+            buttonText="Login"
+            imageSrc="/login_front.png"
+            imageAlt="Login illustration"
+          />
 
           <FeatureCard
             title="Patient Registration"
-            description="Easily register as a new patient and access our services."
+            description="Register easily and start managing appointments."
             buttonText="Register"
             imageSrc="/patient-registration.png"
             imageAlt="Patient registration illustration"
@@ -24,14 +42,21 @@ export default function Home() {
 
           <FeatureCard
             title="Doctor Availability"
-            description="Get to know about doctor availability and save your time"
-            buttonText="Click Here"
+            description="Check doctor availability and reduce waiting time."
+            buttonText="Check Availability"
             imageSrc="/doctor-availability.png"
             imageAlt="Doctor availability illustration"
           />
 
-          <AboutSection />
-        </div>
+        </section>
+
+        {/* ABOUT SECTION */}
+        <section className="mt-12 mb-12">
+          <div className="bg-white rounded-2xl shadow-md p-10">
+            <AboutSection />
+          </div>
+        </section>
+
       </main>
     </div>
   )
