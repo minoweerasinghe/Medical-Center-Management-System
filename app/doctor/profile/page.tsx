@@ -13,7 +13,7 @@ export default function DoctorProfile() {
   const [formData, setFormData] = useState({
     name: "Dr. Mahesh Joseph",
     specialization: "General Practitioner",
-    email: "mahesh.joseph@medicalcentre.com",
+    email: "joseph@gmail.com",
     username: "dr.mahesh",
     password: "",
     confirmPassword: "",

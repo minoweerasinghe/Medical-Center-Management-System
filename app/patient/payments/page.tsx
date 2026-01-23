@@ -20,9 +20,9 @@ interface Payment {
 }
 
 const payment: Payment = {
-  patientName: "Sophia Clark",
-  profileId: "PT12345",
-  doctorName: "Dr. Ethan Bennett",
+  patientName: "Pramudi Perera",
+  profileId: "002",
+  doctorName: "Dr. Mahesh Joseph",
   date: "2024-03-15",
   medicines: [
     { name: "Lyptus Syrup", quantity: 1, unitPrice: 1000, subtotal: 1000 },
@@ -100,10 +100,6 @@ export default function PaymentsPage() {
               <span className="text-gray-900 font-bold text-lg">Rs. {payment.totalBill}.00</span>
             </div>
           </div>
-        </div>
-
-        <div className="flex justify-end pt-4 border-t">
-          <Button className="bg-blue-500 hover:bg-blue-600 text-white">Back</Button>
         </div>
       </Card>
     </div>

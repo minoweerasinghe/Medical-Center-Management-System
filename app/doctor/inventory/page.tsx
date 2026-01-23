@@ -27,7 +27,7 @@ const summaryStats = [
   { label: "Total Medicines in Stock", value: "1200" },
   { label: "Expiring Soon", value: "50" },
   { label: "Expired Items", value: "10" },
-  { label: "Total Stock Value", value: "Rs.. 50,000" },
+  { label: "Total Stock Value", value: "Rs. 50,000" },
 ]
 
 const inventoryData = [
@@ -66,9 +66,9 @@ export default function DoctorInventory() {
         <CardContent className="p-6 space-y-4">
           <h3 className="font-semibold">Filter Controls</h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <Select value={expiryStatus} onValueChange={setExpiryStatus}>
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Expiry Status" />
               </SelectTrigger>
               <SelectContent>
@@ -80,7 +80,7 @@ export default function DoctorInventory() {
             </Select>
 
             <Select value={sortBy} onValueChange={setSortBy}>
-              <SelectTrigger>
+              <SelectTrigger className="w-full">
                 <SelectValue placeholder="Sort By" />
               </SelectTrigger>
               <SelectContent>
@@ -88,6 +88,26 @@ export default function DoctorInventory() {
                 <SelectItem value="stock">Stock Level</SelectItem>
                 <SelectItem value="expiry">Expiry Date</SelectItem>
                 <SelectItem value="price">Price</SelectItem>
+              </SelectContent>
+            </Select>
+
+            <Select value={reportMonth} onValueChange={setReportMonth}>
+              <SelectTrigger className="w-full">
+                <SelectValue placeholder="Report Month" />
+              </SelectTrigger>
+              <SelectContent>
+                <SelectItem value="january">January</SelectItem>
+                <SelectItem value="february">February</SelectItem>
+                <SelectItem value="march">March</SelectItem>
+                <SelectItem value="april">April</SelectItem>
+                <SelectItem value="may">May</SelectItem>
+                <SelectItem value="june">June</SelectItem>
+                <SelectItem value="july">July</SelectItem>
+                <SelectItem value="august">August</SelectItem>
+                <SelectItem value="september">September</SelectItem>
+                <SelectItem value="october">October</SelectItem>
+                <SelectItem value="november">November</SelectItem>
+                <SelectItem value="december">December</SelectItem>
               </SelectContent>
             </Select>
           </div>
@@ -101,18 +121,6 @@ export default function DoctorInventory() {
               className="pl-10"
             />
           </div>
-
-          <Select value={reportMonth} onValueChange={setReportMonth}>
-            <SelectTrigger>
-              <SelectValue placeholder="Report Month" />
-            </SelectTrigger>
-            <SelectContent>
-              <SelectItem value="january">January</SelectItem>
-              <SelectItem value="february">February</SelectItem>
-              <SelectItem value="march">March</SelectItem>
-              <SelectItem value="april">April</SelectItem>
-            </SelectContent>
-          </Select>
 
           <div className="flex justify-end gap-3">
             <Button variant="outline" className="bg-transparent">Generate Report</Button>

@@ -15,7 +15,7 @@ function PatientLayoutContent({
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <MedicalHeader variant="login" />
+      <MedicalHeader variant="login" isAuthenticated={true} />
       <div className="flex">
         {selectedMember && <SidebarNav />}
         <main className={`flex-1 ${selectedMember ? "ml-4" : ""} p-8`}>

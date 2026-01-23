@@ -15,7 +15,7 @@ interface Visit {
 const visits: Visit[] = [
   {
     date: "March 15, 2023",
-    doctor: "Dr. Emily Carter",
+    doctor: "Dr. Mahesh Joseph",
     specialty: "General Practitioner",
     diagnosis: "Flu",
     prescription: "View Prescription",
@@ -23,7 +23,7 @@ const visits: Visit[] = [
   },
   {
     date: "November 20, 2022",
-    doctor: "Dr. Emily Carter",
+    doctor: "Dr. Mahesh Joseph",
     specialty: "General Practitioner",
     diagnosis: "Fever",
     prescription: "View Prescription",
@@ -31,7 +31,7 @@ const visits: Visit[] = [
   },
   {
     date: "May 8, 2022",
-    doctor: "Dr. Mark Jaksson",
+    doctor: "Dr. Amasha Joseph",
     specialty: "Orthopedic",
     diagnosis: "Allergies",
     prescription: "View Prescription",
@@ -83,10 +83,6 @@ export default function ViewHistoryPage() {
           </div>
         </Card>
       ))}
-
-      <div className="flex justify-end pt-4">
-        <Button className="bg-blue-500 hover:bg-blue-600 text-white">Back</Button>
-      </div>
     </div>
   )
 }

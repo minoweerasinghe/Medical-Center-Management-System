@@ -17,9 +17,9 @@ export default function FamilyAccountPage() {
   const router = useRouter()
   const { setSelectedMember } = usePatient()
   const [members, setMembers] = useState<FamilyMember[]>([
-    { id: "1", name: "Olivia Carter", role: "owner", image: "/pic3.png" },
-    { id: "2", name: "Liam Carter", role: "Member", image: "/pic2.png" },
-    { id: "3", name: "Ethan Carter", role: "Member", image: "/pic1.png" },
+    { id: "1", name: "Pramudi Perera", role: "owner", image: "/pic3.png" },
+    { id: "2", name: "Lalith Perera", role: "Member", image: "/pic2.png" },
+    { id: "3", name: "Numeth Perera", role: "Member", image: "/pic1.png" },
   ])
 
   const handleSelectMember = (member: FamilyMember) => {

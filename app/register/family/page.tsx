@@ -4,8 +4,9 @@ import type React from "react"
 import { useState } from "react"
 import { MedicalHeader } from "@/components/medical-header"
 import { useRouter } from "next/navigation"
+import { add } from "date-fns"
 
-export default function PatientRegisterPage() {
+export default function FamilyRegisterPage() {
   const router = useRouter()
   const [formData, setFormData] = useState({
     familyName: "",
@@ -47,7 +48,7 @@ export default function PatientRegisterPage() {
     setError("")
     if (!validateForm()) return
 
-    console.log("Patient registration:", formData)
+    console.log("Family account registration:", formData)
     router.push("/login")
   }
 
@@ -63,7 +64,7 @@ export default function PatientRegisterPage() {
             <div className="rounded-lg overflow-hidden">
               <img
                 src="/patient-registration.png"
-                alt="Patient"
+                alt="Family Registration"
                 className="w-full h-full object-cover"
               />
             </div>
@@ -78,49 +79,49 @@ export default function PatientRegisterPage() {
             <form onSubmit={handleSubmit} className="space-y-6">
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Family Username
+                  Family Name
                 </label>
                 <input
                   type="text"
                   name="familyName"
                   value={formData.familyName}
                   onChange={handleChange}
-                  placeholder="Enter your family username"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-sky-400 outline-none"
+                  placeholder="Enter family name"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
-             
               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">NIC</label>
+                <label className="block text-sm font-medium text-gray-800 mb-2">
+                  NIC Number
+                </label>
                 <input
                   type="text"
                   name="nic"
                   value={formData.nic}
                   onChange={handleChange}
-                  placeholder="Enter your NIC"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-sky-400 outline-none"
-                />
-              </div>
-              
-
-               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Contact Number
-                </label>
-                <input
-                  type="text"
-                  name="contactNumber"
-                  value={formData.contactNumber}
-                  onChange={handleChange}
-                  placeholder="Enter your password"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-sky-400 outline-none"
+                  placeholder="Enter NIC number"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
               <div>
                 <label className="block text-sm font-medium text-gray-800 mb-2">
-                  Email
+                  Contact Number
+                </label>
+                <input
+                  type="tel"
+                  name="contactNumber"
+                  value={formData.contactNumber}
+                  onChange={handleChange}
+                  placeholder="Enter contact number"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium text-gray-800 mb-2">
+                  Email Address
                 </label>
                 <input
                   type="email"
@@ -128,19 +129,21 @@ export default function PatientRegisterPage() {
                   value={formData.email}
                   onChange={handleChange}
                   placeholder="Enter your email"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-sky-400 outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
-               <div>
-                <label className="block text-sm font-medium text-gray-800 mb-2">Address</label>
+              <div>
+                <label className="block text-sm font-medium text-gray-800 mb-2">
+                Address
+                </label>
                 <input
                   type="text"
                   name="address"
                   value={formData.address}
                   onChange={handleChange}
                   placeholder="Enter your address"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-sky-400 outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
@@ -154,7 +157,7 @@ export default function PatientRegisterPage() {
                   value={formData.password}
                   onChange={handleChange}
                   placeholder="Enter your password"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-sky-400 outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
@@ -168,33 +171,23 @@ export default function PatientRegisterPage() {
                   value={formData.confirmPassword}
                   onChange={handleChange}
                   placeholder="Confirm your password"
-                  className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-sky-400 outline-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-teal-500"
                 />
               </div>
 
               {error && (
-                <div className="p-3 bg-red-50 border border-red-200 rounded-lg">
-                  <p className="text-sm text-red-600">{error}</p>
+                <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+                  {error}
                 </div>
               )}
 
               <button
                 type="submit"
-                className="w-full bg-sky-500 hover:bg-sky-600 text-white font-bold py-2 rounded-md transition"
+                className="w-full bg-teal-500 hover:bg-teal-600 text-white font-semibold py-3 px-4 rounded-lg transition duration-200"
               >
-                Sign Up
+                Create Family Account
               </button>
             </form>
-
-            <p className="text-center mt-6 text-gray-500 text-sm">
-              Already have an account?{" "}
-              <button
-                onClick={() => router.push("/login")}
-                className="text-sky-500 hover:text-sky-600 font-medium"
-              >
-                Login
-              </button>
-            </p>
           </div>
         </div>
       </main>

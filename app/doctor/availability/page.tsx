@@ -17,7 +17,8 @@ import {
 
 const timeSlots = [
   "09:00 AM", "09:30 AM", "10:00 AM", "10:30 AM", "11:00 AM", "11:30 AM",
-  "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM"
+  "02:00 PM", "02:30 PM", "03:00 PM", "03:30 PM", "04:00 PM", "04:30 PM",
+  "05:00 PM"
 ]
 
 const daysOfWeek = [
@@ -44,13 +45,19 @@ export default function DoctorAvailability() {
 
   return (
     <div className="space-y-6">
+
       {/* Header */}
       <div>
-        <h1 className="text-2xl font-bold text-gray-900">Availability Management</h1>
-        <p className="text-gray-500">Set your working hours and manage your schedule.</p>
+        <h1 className="text-2xl font-bold text-gray-900">
+          Availability Management
+        </h1>
+        <p className="text-gray-500">
+          Set your working hours and manage your schedule.
+        </p>
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+
         {/* Calendar */}
         <Card>
           <CardHeader>
@@ -73,7 +80,10 @@ export default function DoctorAvailability() {
           </CardHeader>
           <CardContent className="space-y-4">
             {availability.map((item, index) => (
-              <div key={item.day} className="flex items-center justify-between py-2 border-b last:border-0">
+              <div
+                key={item.day}
+                className="flex items-center justify-between py-2 border-b last:border-0"
+              >
                 <div className="flex items-center gap-3">
                   <Switch
                     checked={item.available}
@@ -81,13 +91,22 @@ export default function DoctorAvailability() {
                   />
                   <Label className="font-medium">{item.day}</Label>
                 </div>
-                <Badge variant={item.available ? "default" : "secondary"} className={item.available ? "bg-emerald-100 text-emerald-700" : ""}>
+
+                <Badge
+                  variant={item.available ? "default" : "secondary"}
+                  className={
+                    item.available
+                      ? "bg-emerald-100 text-emerald-700"
+                      : ""
+                  }
+                >
                   {item.available ? "Available" : "Unavailable"}
                 </Badge>
               </div>
             ))}
           </CardContent>
         </Card>
+
       </div>
 
       {/* Working Hours */}
@@ -95,42 +114,67 @@ export default function DoctorAvailability() {
         <CardHeader>
           <CardTitle>Default Working Hours</CardTitle>
         </CardHeader>
+
         <CardContent>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+
+            {/* Start Time */}
             <div className="space-y-2">
               <Label>Start Time</Label>
               <Select value={startTime} onValueChange={setStartTime}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select start time" />
                 </SelectTrigger>
-                <SelectContent>
+
+                <SelectContent
+                  side="bottom"
+                  align="start"
+                  avoidCollisions={false}
+                >
                   {timeSlots.map((time) => (
-                    <SelectItem key={time} value={time}>{time}</SelectItem>
+                    <SelectItem key={time} value={time}>
+                      {time}
+                    </SelectItem>
                   ))}
                 </SelectContent>
+
               </Select>
             </div>
+
+            {/* End Time */}
             <div className="space-y-2">
               <Label>End Time</Label>
               <Select value={endTime} onValueChange={setEndTime}>
-                <SelectTrigger>
+                <SelectTrigger className="w-full">
                   <SelectValue placeholder="Select end time" />
                 </SelectTrigger>
-                <SelectContent>
+
+                <SelectContent
+                  side="bottom"
+                  align="start"
+                  avoidCollisions={false}
+                >
                   {timeSlots.map((time) => (
-                    <SelectItem key={time} value={time}>{time}</SelectItem>
+                    <SelectItem key={time} value={time}>
+                      {time}
+                    </SelectItem>
                   ))}
                 </SelectContent>
+
               </Select>
             </div>
+
           </div>
+
           <div className="flex justify-end mt-6">
             <Button className="bg-teal-500 hover:bg-teal-600 text-white">
               Save Schedule
             </Button>
           </div>
+
         </CardContent>
       </Card>
+
     </div>
   )
 }

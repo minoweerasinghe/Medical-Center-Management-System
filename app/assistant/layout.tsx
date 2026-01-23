@@ -15,7 +15,7 @@ export default function AssistantLayout({
 }) {
   return (
     <div className="min-h-screen bg-gray-50">
-      <MedicalHeader />
+      <MedicalHeader isAuthenticated={true} />
       <div className="flex">
         <AssistantSidebar />
         <main className="flex-1 p-8">

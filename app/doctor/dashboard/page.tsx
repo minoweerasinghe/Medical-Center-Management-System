@@ -22,16 +22,10 @@ const stats = [
 ]
 
 const patientQueue = [
-  { token: "#021", name: "Sophia Carter", arrivalTime: "09:15 AM", status: "WAITING" },
-  { token: "#022", name: "Owen Turner", arrivalTime: "09:30 AM", status: "WAITING" },
-  { token: "#023", name: "Ava Mitchell", arrivalTime: "09:45 AM", status: "ARRIVED" },
-  { token: "#024", name: "Ethan Foster", arrivalTime: "10:05 AM", status: "SCHEDULED" },
-]
-
-const nextAppointments = [
-  { time: "10:30 AM", name: "Benjamin Reed", type: "Follow-up: Hypertension" },
-  { time: "11:00 AM", name: "Emma Wilson", type: "General Consultation" },
-  { time: "11:30 AM", name: "Noah Miller", type: "New Patient: Back Pain" },
+  { token: "#021", name: "Pramudi Perera", arrivalTime: "09:15 AM", status: "WAITING" },
+  { token: "#022", name: "Amal Weerasinghe", arrivalTime: "09:30 AM", status: "WAITING" },
+  { token: "#023", name: "Emasha Peiris", arrivalTime: "09:45 AM", status: "ARRIVED" },
+  { token: "#024", name: "Sandali Bandara", arrivalTime: "10:05 AM", status: "SCHEDULED" },
 ]
 
 const inventoryAlerts = [
@@ -39,24 +33,6 @@ const inventoryAlerts = [
   { name: "Amoxicillin 250mg", status: "WARNING", count: "45 units left", color: "bg-amber-100 text-amber-700" },
   { name: "Insulin Lantus", status: "EXPIRED", count: "5 vials", color: "bg-red-100 text-red-700" },
 ]
-
-const getStatusBadge = (status: string) => {
-  const styles: Record<string, string> = {
-    WAITING: "bg-amber-100 text-amber-700 border-amber-200",
-    ARRIVED: "bg-emerald-100 text-emerald-700 border-emerald-200",
-    SCHEDULED: "bg-gray-100 text-gray-700 border-gray-200",
-  }
-  return styles[status] || styles.SCHEDULED
-}
-
-const getAlertBadge = (status: string) => {
-  const styles: Record<string, string> = {
-    LOW: "bg-red-500 text-white",
-    WARNING: "bg-amber-500 text-white",
-    EXPIRED: "bg-red-600 text-white",
-  }
-  return styles[status] || styles.LOW
-}
 
 export default function DoctorDashboard() {
   const waitingCount = patientQueue.filter(p => p.status === "WAITING").length
@@ -87,9 +63,6 @@ export default function DoctorDashboard() {
         <Card className="lg:col-span-2">
           <CardHeader className="flex flex-row items-center justify-between pb-4">
             <CardTitle className="text-lg font-semibold">Today's Patient Queue</CardTitle>
-            <Badge variant="outline" className="bg-emerald-50 text-emerald-700 border-emerald-200">
-              {waitingCount} Waiting
-            </Badge>
           </CardHeader>
           <CardContent>
             <Table>
@@ -97,9 +70,7 @@ export default function DoctorDashboard() {
                 <TableRow>
                   <TableHead className="text-xs font-medium text-gray-500 uppercase">Token</TableHead>
                   <TableHead className="text-xs font-medium text-gray-500 uppercase">Patient Name</TableHead>
-                  <TableHead className="text-xs font-medium text-gray-500 uppercase">Arrival Time</TableHead>
-                  <TableHead className="text-xs font-medium text-gray-500 uppercase">Status</TableHead>
-                  <TableHead className="text-xs font-medium text-gray-500 uppercase">Action</TableHead>
+                  <TableHead className="text-xs font-medium text-gray-500 uppercase">Check Profile</TableHead>
                 </TableRow>
               </TableHeader>
               <TableBody>
@@ -107,12 +78,6 @@ export default function DoctorDashboard() {
                   <TableRow key={patient.token}>
                     <TableCell className="font-medium">{patient.token}</TableCell>
                     <TableCell>{patient.name}</TableCell>
-                    <TableCell className="text-gray-500">{patient.arrivalTime}</TableCell>
-                    <TableCell>
-                      <Badge variant="outline" className={getStatusBadge(patient.status)}>
-                        {patient.status}
-                      </Badge>
-                    </TableCell>
                     <TableCell>
                       <Button size="sm" className="bg-teal-500 hover:bg-teal-600 text-white">
                         VIEW
@@ -132,28 +97,7 @@ export default function DoctorDashboard() {
 
         {/* Right Sidebar */}
         <div className="space-y-6">
-          {/* Next Appointments */}
-          <Card>
-            <CardHeader className="pb-3">
-              <CardTitle className="text-lg font-semibold">Next Appointments</CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              {nextAppointments.map((apt, index) => (
-                <div key={index} className="flex items-start gap-3">
-                  <div className="bg-gray-100 rounded-lg px-3 py-2 text-center min-w-[60px]">
-                    <span className="text-xs font-medium text-gray-600">{apt.time}</span>
-                  </div>
-                  <div>
-                    <p className="font-medium text-gray-900">{apt.name}</p>
-                    <p className="text-sm text-gray-500">{apt.type}</p>
-                  </div>
-                </div>
-              ))}
-              <Link href="/doctor/availability" className="text-blue-600 hover:text-blue-700 text-sm font-medium block text-center mt-2">
-                Full Schedule
-              </Link>
-            </CardContent>
-          </Card>
+          
 
           {/* Inventory Alerts */}
           <Card className="border-red-200">
@@ -170,9 +114,6 @@ export default function DoctorDashboard() {
                     <p className="font-medium text-gray-900">{item.name}</p>
                     <p className="text-sm text-red-500">{item.count}</p>
                   </div>
-                  <Badge className={getAlertBadge(item.status)}>
-                    {item.status}
-                  </Badge>
                 </div>
               ))}
             </CardContent>

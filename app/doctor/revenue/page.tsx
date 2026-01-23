@@ -37,10 +37,10 @@ const months = [
 const years = ["2024", "2023", "2022", "2021"]
 
 const transactions = [
-  { date: "2024-10-07", patient: "Owen Turner", consultation: 500, medicine: 200, total: 700 },
-  { date: "2024-10-14", patient: "Sophia Reed", consultation: 500, medicine: 300, total: 800 },
-  { date: "2024-10-21", patient: "Ethan Foster", consultation: 500, medicine: 150, total: 650 },
-  { date: "2024-10-28", patient: "Ava Mitchell", consultation: 500, medicine: 250, total: 750 },
+  { date: "2024-10-07", patient: "Pramudi Perera", consultation: 500, medicine: 200, total: 700 },
+  { date: "2024-10-14", patient: "Amal Weerasinghe", consultation: 500, medicine: 300, total: 800 },
+  { date: "2024-10-21", patient: "Emasha Peiris", consultation: 500, medicine: 150, total: 650 },
+  { date: "2024-10-28", patient: "Sandali Bandara", consultation: 500, medicine: 250, total: 750 },
 ]
 
 export default function DoctorRevenue() {
@@ -91,7 +91,7 @@ export default function DoctorRevenue() {
       <Card>
         <CardHeader>
           <CardTitle>Monthly Revenue Report</CardTitle>
-          <p className="text-sm text-gray-500">Review and download detailed revenue reports for each doctor.</p>
+          <p className="text-sm text-gray-500">Review and download detailed revenue reports</p>
         </CardHeader>
         <CardContent className="space-y-6">
           {/* Filters */}

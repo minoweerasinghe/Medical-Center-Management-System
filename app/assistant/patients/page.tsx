@@ -22,47 +22,29 @@ interface Patient {
 const mockPatients: Patient[] = [
   {
     id: "1",
-    name: "Sophia Carter",
-    profileId: "12345678",
+    name: "Pramudi Perera",
+    profileId: "002",
     age: 30,
     gender: "Female",
-    contact: "(555) 123-4567",
+    contact: "074 0235792",
     prescriptions: true,
   },
   {
     id: "2",
-    name: "Ethan Carter",
-    profileId: "12345679",
+    name: "Sandali Silva",
+    profileId: "019",
     age: 28,
-    gender: "Male",
-    contact: "(555) 123-4568",
+    gender: "Female",
+    contact: "076 5874568",
     prescriptions: true,
   },
   {
     id: "3",
-    name: "Liam Carter",
-    profileId: "12345680",
+    name: "Lalith Fernando",
+    profileId: "080",
     age: 5,
     gender: "Male",
-    contact: "(555) 123-4569",
-    prescriptions: false,
-  },
-  {
-    id: "4",
-    name: "Olivia Bennett",
-    profileId: "12345681",
-    age: 35,
-    gender: "Female",
-    contact: "(555) 123-4570",
-    prescriptions: true,
-  },
-  {
-    id: "5",
-    name: "Noah Foster",
-    profileId: "12345682",
-    age: 42,
-    gender: "Male",
-    contact: "(555) 123-4571",
+    contact: "072 1234569",
     prescriptions: false,
   },
 ]
@@ -91,7 +73,7 @@ export default function PatientsPage() {
               <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-gray-400" />
               <input
                 type="text"
-                placeholder="Search by patient name or ID"
+                placeholder="Search by patient ID"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-12 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
@@ -112,10 +94,10 @@ export default function PatientsPage() {
                       Age/Gender
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                      Contact
+                      Contact Number
                     </th>
                     <th className="px-6 py-3 text-left text-xs font-semibold text-gray-500 uppercase tracking-wider">
-                      Actions
+                      View Profile
                     </th>
                   </tr>
                 </thead>

@@ -13,15 +13,15 @@ import { Suspense } from "react"
 import Loading from "./loading"
 
 const patientData = {
-  id: "123456789",
-  name: "Sophia Carter",
+  id: "002",
+  name: "Pramudi Perera",
   age: 30,
   gender: "Female",
-  contact: "(555) 123-4567",
-  address: "123 Maple Street, Anytown, USA",
+  contact: "074 0235792",
+  address: "Alakamanda, Kiulawatta, Bombuwela,Kalutara ",
   allergies: ["Penicillin", "Aspirin"],
   prescribedMedicines: true,
-  image: "/placeholder.svg?height=150&width=150",
+  image: "/pic3.png",
 }
 
 const visitHistory = [
@@ -55,18 +55,11 @@ export default function DoctorPatients() {
         <div className="relative max-w-xl">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 h-4 w-4 text-gray-400" />
           <Input
-            placeholder="Search by patient name or ID"
+            placeholder="Search by patient ID"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
             className="pl-10 border-gray-300"
           />
-        </div>
-
-        {/* Allergies Badge */}
-        <div>
-          <Badge variant="outline" className="bg-teal-50 text-teal-700 border-teal-200">
-            Allergies
-          </Badge>
         </div>
 
         {/* Patient Profile Card */}
@@ -172,9 +165,6 @@ export default function DoctorPatients() {
                         <p className="font-semibold">{visit.medicine}</p>
                         <p className="text-sm text-gray-500">{visit.dosage}</p>
                       </div>
-                      <Badge variant="outline" className="bg-emerald-50 text-emerald-700">
-                        Active
-                      </Badge>
                     </div>
                   </CardContent>
                 </Card>

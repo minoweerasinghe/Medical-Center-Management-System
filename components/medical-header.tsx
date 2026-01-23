@@ -3,9 +3,10 @@ import { Button } from "@/components/ui/button"
 
 interface MedicalHeaderProps {
   variant?: "login" | "home" | "register"
+  isAuthenticated?: boolean
 }
 
-export function MedicalHeader({ variant = "home" }: MedicalHeaderProps) {
+export function MedicalHeader({ variant = "home", isAuthenticated = false }: MedicalHeaderProps) {
   return (
     <header className="border-b border-border bg-background">
       <div className="container mx-auto px-4 py-4 flex items-center justify-between">
@@ -21,9 +22,6 @@ export function MedicalHeader({ variant = "home" }: MedicalHeaderProps) {
             </Link>
             <Link href="/#about-us" className="text-foreground hover:text-[#0891b2] transition-colors">
               About Us
-            </Link>
-            <Link href="/login" className="text-foreground hover:text-[#0891b2] transition-colors font-medium">
-              Login
             </Link>
           </nav>
         ) : variant === "login" ? (
@@ -43,12 +41,16 @@ export function MedicalHeader({ variant = "home" }: MedicalHeaderProps) {
             <Link href="/#about-us" className="text-foreground hover:text-[#0891b2] transition-colors">
               About Us
             </Link>
-            <Link href="/login" className="text-foreground hover:text-[#0891b2] transition-colors">
-              Login
-            </Link>
-            <Link href="/login#register" className="text-foreground hover:text-[#0891b2] transition-colors">
-              Register
-            </Link>
+            {!isAuthenticated && (
+              <>
+                <Link href="/login" className="text-foreground hover:text-[#0891b2] transition-colors">
+                  Login
+                </Link>
+                <Link href="/login#register" className="text-foreground hover:text-[#0891b2] transition-colors">
+                  Register
+                </Link>
+              </>
+            )}
           </nav>
         )}
       </div>

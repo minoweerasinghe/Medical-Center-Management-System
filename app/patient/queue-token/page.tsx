@@ -14,22 +14,20 @@ export default function QueueTokenPage() {
   const tokenData = {
     queueNumber: 23,
     doctor: {
-      name: "Dr. Sophie Brown",
+      name: "Dr. Mahesh Joseph",
       specialty: "General Practitioner",
     },
     appointmentDateTime: "10:00 AM, Jan 22, 2025",
     status: "Scheduled",
     patient: {
-      name: selectedMember?.name || "Sophie Brown",
+      name: selectedMember?.name || "Pramudi Perera",
       role: "Patient Profile",
       image: selectedMember?.image || "/placeholder.svg?height=200&width=200",
     },
   }
 
   const liveQueueStatus = {
-    currentTokenBeingServed: 18,
-    yourPosition: "5th in line",
-    estimatedTime: "~45 Minutes",
+    currentTokenBeingServed: 15,
   }
 
   const handleRefresh = () => {
@@ -101,20 +99,6 @@ export default function QueueTokenPage() {
               <span className="inline-flex items-center justify-center w-10 h-10 rounded-lg bg-blue-100 text-blue-700 font-bold text-lg">
                 {liveQueueStatus.currentTokenBeingServed}
               </span>
-              <span className="text-gray-700 font-medium">Active Session</span>
-            </div>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">Your Position</p>
-            <p className="text-gray-900 font-medium">{liveQueueStatus.yourPosition}</p>
-          </div>
-
-          <div>
-            <p className="text-xs font-semibold text-blue-600 uppercase tracking-wider mb-3">Estimated Time</p>
-            <div className="flex items-center gap-2 text-gray-700">
-              <Clock className="h-4 w-4" />
-              <span className="font-medium">{liveQueueStatus.estimatedTime}</span>
             </div>
           </div>
         </div>
@@ -138,8 +122,7 @@ export default function QueueTokenPage() {
           <div>
             <p className="font-semibold text-gray-900">Queue Information</p>
             <p className="text-sm text-gray-600">
-              Please arrive at least 15 minutes before your estimated time. If you miss your turn, you will need to
-              re-generate a new token at the reception desk.
+              Please arrive at least 15 minutes before your estimated time. If you miss your turn, you will take your turn after 5 patients.
             </p>
           </div>
         </div>

@@ -15,7 +15,7 @@ export default function DoctorLayout({
 }) {
   return (
     <div className="min-h-screen bg-gray-50">
-      <MedicalHeader />
+      <MedicalHeader isAuthenticated={true} />
       <div className="flex">
         <DoctorSidebar />
         <main className="flex-1 p-8">

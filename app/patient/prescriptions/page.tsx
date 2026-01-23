@@ -23,7 +23,7 @@ const prescriptions: Prescription[] = [
     id: "1",
     doctorName: "Dr. Mahesh Joseph",
     specialty: "General Practitioner",
-    contact: "+44 71 807 4502",
+    contact: "071 7894502",
     date: "Jun 15, 2024",
     diagnosis: "Common Cold",
     medicines: [
@@ -81,10 +81,6 @@ export default function PrescriptionsPage() {
                 </tbody>
               </table>
             </div>
-          </div>
-
-          <div className="flex justify-end pt-4 border-t">
-            <Button className="bg-blue-500 hover:bg-blue-600 text-white">Back</Button>
           </div>
         </Card>
       ))}
