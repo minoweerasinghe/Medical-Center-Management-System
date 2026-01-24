@@ -65,7 +65,17 @@ export function LoginForm() {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault()
     if (role === "patient") {
-      router.push("/patient/family-account")
+      // Store default patient member in localStorage
+      localStorage.setItem(
+        "defaultPatient",
+        JSON.stringify({
+          id: "002",
+          name: "Pramudi Perera",
+          role: "patient",
+          image: "/pic3.png",
+        })
+      )
+      router.push("/patient/dashboard")
     } else if (role === "doctor") {
       router.push("/doctor/dashboard")
     } else if (role === "medical center assistant") {

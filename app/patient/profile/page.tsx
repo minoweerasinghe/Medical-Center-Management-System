@@ -10,13 +10,30 @@ export default function ProfilePage() {
 
   const profileData = {
     id: "002",
-    name: "Olivia Bennett",
+    name: "Pramudi Perera",
     address: "'Alakamanda',Kiulawatta, Bombuwela, Kalutara South",
-    contact: "077 123 4567",
+    contact: "074 0235792",
     gender: "Female",
     birthday: "1994-05-15",
     image: "/pic3.png",
   }
+
+  const otherProfiles = [
+    {
+      id: "003",
+      name: "Numeth Perera",
+      gender: "Male",
+      birthday: "2010-02-10",
+      image: "/pic1.png",
+    },
+    {
+      id: "004",
+      name: "Lalith Perera",
+      gender: "Male",
+      birthday: "1998-07-22",
+      image: "/pic2.png",
+    },
+  ]
 
   return (
     <div className="space-y-8">
@@ -85,6 +102,59 @@ export default function ProfilePage() {
           <Button className="bg-blue-500 hover:bg-blue-600 text-white">Save Changes</Button>
         </div>
       </Card>
+
+      {/* Other Profiles Section */}
+      <div>
+        <h2 className="text-3xl font-bold text-gray-900 mb-2">Other Profiles</h2>
+        <p className="text-gray-600">Select family members' profiles under this account</p>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {otherProfiles.map((profile) => (
+          <Card key={profile.id} className="p-6 bg-white hover:shadow-lg transition-shadow">
+            <div className="text-center">
+              <div className="bg-amber-100 rounded-lg overflow-hidden mb-4 h-40 flex items-center justify-center">
+                <img 
+                  src={profile.image || "/placeholder.svg"} 
+                  alt={profile.name} 
+                  className="w-full h-full object-cover" 
+                />
+              </div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">{profile.name}</h3>
+              
+              <div className="space-y-2 text-sm text-gray-600 mb-6">
+                <div>
+                  <p className="text-xs text-gray-500">Gender</p>
+                  <p className="text-gray-900 font-medium">{profile.gender}</p>
+                </div>
+                <div>
+                  <p className="text-xs text-gray-500">Date of Birth</p>
+                  <p className="text-gray-900 font-medium">{profile.birthday}</p>
+                </div>
+              </div>
+
+              <div className="flex flex-col gap-2">
+                <Link href={`/patient/profile?id=${profile.id}`}>
+                  <Button className="w-full bg-blue-500 hover:bg-blue-600 text-white">View Profile</Button>
+                </Link>
+                <Button className="w-full bg-gray-200 hover:bg-gray-300 text-gray-900">Edit</Button>
+              </div>
+            </div>
+          </Card>
+        ))}
+
+        {/* Add New Profile Card */}
+        <Card className="p-6 bg-white border-2 border-dashed border-gray-300 hover:border-blue-500 hover:shadow-lg transition-all flex items-center justify-center min-h-96">
+          <div className="text-center">
+            <div className="text-4xl text-gray-400 mb-3">+</div>
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">Add New Profile</h3>
+            <p className="text-sm text-gray-600 mb-4">Add a family member to your account</p>
+            <Link href="/patient/add-member">
+              <Button className="bg-blue-500 hover:bg-blue-600 text-white">Add Member</Button>
+            </Link>
+          </div>
+        </Card>
+      </div>
     </div>
   )
 }

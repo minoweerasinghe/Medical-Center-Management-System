@@ -1,4 +1,7 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
+import { useRouter } from "next/navigation"
 
 interface FeatureCardProps {
   title: string
@@ -6,9 +9,12 @@ interface FeatureCardProps {
   buttonText: string
   imageSrc: string
   imageAlt: string
+  href: string
 }
 
-export function FeatureCard({ title, description, buttonText, imageSrc, imageAlt }: FeatureCardProps) {
+export function FeatureCard({ title, description, buttonText, imageSrc, imageAlt, href }: FeatureCardProps) {
+  const router = useRouter()
+
   return (
     <section className="w-full max-w-2xl mx-auto border-t border-border py-6">
       <div className="flex items-center justify-between gap-6">
@@ -18,6 +24,7 @@ export function FeatureCard({ title, description, buttonText, imageSrc, imageAlt
           <Button
             variant="outline"
             className="rounded-md border-foreground text-foreground hover:bg-muted bg-transparent"
+            onClick={() => router.push(href)}
           >
             {buttonText}
           </Button>

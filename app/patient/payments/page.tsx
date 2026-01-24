@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card"
 
 interface Payment {
   patientName: string
-  profileId: string
+  paymentId: string
   doctorName: string
   date: string
   medicines: Array<{
@@ -21,7 +21,7 @@ interface Payment {
 
 const payment: Payment = {
   patientName: "Pramudi Perera",
-  profileId: "002",
+  paymentId: "082",
   doctorName: "Dr. Mahesh Joseph",
   date: "2024-03-15",
   medicines: [
@@ -50,8 +50,8 @@ export default function PaymentsPage() {
             <p className="text-lg font-semibold text-gray-900">{payment.doctorName}</p>
           </div>
           <div>
-            <p className="text-sm text-gray-600 mb-2">Profile ID</p>
-            <p className="text-lg font-semibold text-gray-900">{payment.profileId}</p>
+            <p className="text-sm text-gray-600 mb-2">Payment ID</p>
+            <p className="text-lg font-semibold text-gray-900">{payment.paymentId}</p>
 
             <p className="text-sm text-gray-600 mb-2 mt-4">Date</p>
             <p className="text-lg font-semibold text-gray-900">{payment.date}</p>

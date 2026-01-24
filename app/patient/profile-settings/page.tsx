@@ -6,10 +6,13 @@ import { Card } from "@/components/ui/card"
 
 export default function ProfileSettingsPage() {
   const [formData, setFormData] = useState({
-    fullName: "Olivia Bennett",
-    email: "olivia@gmail.com",
+    firstName: "Pramudi",
+    lastName: "Perera",
+    email: "pramudi@gmail.com",
     phone: "077 123 4562",
     address: "Alakamanda',Kiulawatta, Bombuwela, Kalutara South",
+    allergies: "",
+    othernotes: "",
   })
 
   return (
@@ -21,11 +24,21 @@ export default function ProfileSettingsPage() {
       <Card className="p-6 bg-white max-w-2xl">
         <form className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-900 mb-2">Full Name</label>
+            <label className="block text-sm font-medium text-gray-900 mb-2">First Name</label>
             <input
               type="text"
-              value={formData.fullName}
-              onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
+              value={formData.firstName}
+              onChange={(e) => setFormData({ ...formData, firstName: e.target.value })}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            />
+          </div>
+
+            <div>
+            <label className="block text-sm font-medium text-gray-900 mb-2">Last Name</label>
+            <input
+              type="text"
+              value={formData.lastName}
+              onChange={(e) => setFormData({ ...formData, lastName: e.target.value })}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
             />
           </div>
@@ -56,6 +69,26 @@ export default function ProfileSettingsPage() {
               type="text"
               value={formData.address}
               onChange={(e) => setFormData({ ...formData, address: e.target.value })}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-900 mb-2">Allergies</label>
+            <input
+              type="text"
+              value={formData.allergies}
+              onChange={(e) => setFormData({ ...formData, allergies: e.target.value })}
+              className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
+            />
+          </div>
+
+          <div>
+            <label className="block text-sm font-medium text-gray-900 mb-2">Other Notes</label>
+            <input
+              type="text"
+              value={formData.othernotes}
+              onChange={(e) => setFormData({ ...formData, othernotes: e.target.value })}
               className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none"
             />
           </div>

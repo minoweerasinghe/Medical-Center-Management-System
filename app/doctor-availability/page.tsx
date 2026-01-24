@@ -4,8 +4,8 @@ export default function DoctorAvailabilityPage() {
   const doctors = [
     {
       id: 1,
-      name: "Dr. Joseph Ferreira",
-      specialty: "Cardiologist",
+      name: "Dr. Mahesh Joseph",
+      specialty: "Pediatrician",
       registrationNo: "REG/DCA/12345/690",
       image: "/male-doc.png",
       availability: [
@@ -20,7 +20,7 @@ export default function DoctorAvailabilityPage() {
     },
     {
       id: 2,
-      name: "Dr. Ameesha Rodrigo",
+      name: "Dr. Amasha Joseph",
       specialty: "Pediatrician",
       registrationNo: "REG/DCS/12345/1234",
       image: "/female-doc.png",

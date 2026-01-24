@@ -24,9 +24,9 @@ export default function DashboardPage() {
   const appointment = {
     queueTokenNumber: 23,
     dateTime: "10:00 AM, Jan 22, 2025",
-    patientName: selectedMember?.name || "Olivia Bennett",
+    patientName: selectedMember?.name || "Pramudi Perera",
     doctor: {
-      name: "Dr. Sophie Brown",
+      name: "Dr. Mahesh Joseph",
       specialty: "General Practitioner",
       image: "/queue-token.png",
     },
@@ -53,7 +53,7 @@ export default function DashboardPage() {
       <div>
         <h1 className="text-3xl font-bold text-gray-900">Dashboard</h1>
         <p className="text-gray-600">
-          Welcome back, {selectedMember?.name?.split(" ")[0] || "Olivia"}. Here is your health overview for today.
+          Welcome back, {selectedMember?.name?.split(" ")[0] || "Olivia"}. 
         </p>
       </div>
 

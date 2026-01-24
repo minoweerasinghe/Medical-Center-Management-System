@@ -34,7 +34,7 @@ export function MedicalHeader({ variant = "home", isAuthenticated = false }: Med
             </Link>
           </nav>
         ) : (
-          <nav className="flex items-center gap-10">
+          <nav className="flex items-center gap-6">
             <Link href="/" className="text-foreground hover:text-[#0891b2] transition-colors">
               Home
             </Link>
@@ -42,14 +42,25 @@ export function MedicalHeader({ variant = "home", isAuthenticated = false }: Med
               About Us
             </Link>
             {!isAuthenticated && (
-              <>
-                <Link href="/login" className="text-foreground hover:text-[#0891b2] transition-colors">
-                  Login
-                </Link>
-                <Link href="/login#register" className="text-foreground hover:text-[#0891b2] transition-colors">
-                  Register
-                </Link>
-              </>
+              <div className="flex items-center gap-3">
+                <Button 
+                  asChild 
+                  variant="outline" 
+                  className="border-[#0891b2] text-[#0891b2] hover:bg-[#0891b2] hover:text-white font-semibold transition-colors"
+                >
+                  <Link href="/login">
+                    Login
+                  </Link>
+                </Button>
+                <Button 
+                  asChild
+                  className="bg-[#0891b2] text-white hover:bg-[#0a7ea4] font-semibold transition-colors"
+                >
+                  <Link href="/login#register">
+                    Register
+                  </Link>
+                </Button>
+              </div>
             )}
           </nav>
         )}

@@ -6,36 +6,36 @@ import { Card } from "@/components/ui/card"
 interface Visit {
   date: string
   doctor: string
-  specialty: string
   diagnosis: string
   prescription: string
   amountPaid: number
+  tokenNumber?: number
 }
 
 const visits: Visit[] = [
   {
     date: "March 15, 2023",
     doctor: "Dr. Mahesh Joseph",
-    specialty: "General Practitioner",
     diagnosis: "Flu",
     prescription: "View Prescription",
     amountPaid: 500,
+    tokenNumber: 23,
   },
   {
     date: "November 20, 2022",
     doctor: "Dr. Mahesh Joseph",
-    specialty: "General Practitioner",
     diagnosis: "Fever",
     prescription: "View Prescription",
     amountPaid: 1850,
+    tokenNumber: 45,
   },
   {
     date: "May 8, 2022",
     doctor: "Dr. Amasha Joseph",
-    specialty: "Orthopedic",
     diagnosis: "Allergies",
     prescription: "View Prescription",
     amountPaid: 3175,
+    tokenNumber: 12,
   },
 ]
 
@@ -62,12 +62,12 @@ export default function ViewHistoryPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-4">
             <div>
-              <p className="text-sm text-gray-600 mb-1">Specialty</p>
-              <p className="text-gray-700">{visit.specialty}</p>
-            </div>
-            <div>
               <p className="text-sm text-gray-600 mb-1">Diagnosis</p>
               <p className="text-gray-700">{visit.diagnosis}</p>
+            </div>
+            <div>
+              <p className="text-sm text-gray-600 mb-1">Token Number</p>
+              <p className="text-lg font-semibold text-gray-900">{visit.tokenNumber}</p>
             </div>
           </div>
 

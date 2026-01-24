@@ -30,6 +30,7 @@ export default function Home() {
             buttonText="Login"
             imageSrc="/login_front.png"
             imageAlt="Login illustration"
+            href="/login"
           />
 
           <FeatureCard
@@ -38,6 +39,7 @@ export default function Home() {
             buttonText="Register"
             imageSrc="/patient-registration.png"
             imageAlt="Patient registration illustration"
+            href="/register/patient"
           />
 
           <FeatureCard
@@ -46,6 +48,7 @@ export default function Home() {
             buttonText="Check Availability"
             imageSrc="/doctor-availability.png"
             imageAlt="Doctor availability illustration"
+            href="/doctor-availability"
           />
 
         </section>
